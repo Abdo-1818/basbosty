@@ -938,7 +938,7 @@ body{
     <span class="lock">🔐</span>
     <h2>اكتبي كلمة سر للدخول يا روحي ❤️</h2>
     <p class="hint">كلمة السر هي المفتاح لحكايتنا</p>
-    <input type="password" id="secretInput" placeholder="• • • • • •" inputmode="numeric" dir="ltr" autocomplete="off">
+    <input type="password" id="secretInput" placeholder="اكتبي كلمة السر" dir="ltr" autocomplete="off">
     <button class="btn" id="submitSecret">دخول ❤️</button>
     <p class="error" id="secretError"></p>
     <p class="open-gift-text">🎁 افتحي الهديه 🎁</p>
@@ -1108,7 +1108,7 @@ document.addEventListener('copy', e => e.preventDefault());
 document.addEventListener('cut', e => e.preventDefault());
 document.addEventListener('dragstart', e => e.preventDefault());
 
-const SECRET_WORD = "182005";
+const SECRET_WORD = "Basant";
 
 const audio = new Audio('https://files.catbox.moe/4jy3cv.mp3');
 audio.loop = true;
@@ -1300,8 +1300,8 @@ let giftRevealHeartsInterval = null;
 
 function spawnRevealHearts(){
   const emojis = ['❤️','❤','💗','❤'];
-  const count = 3; // عدد القلوب اللي تظهر كل دوره
-  const radiusBase = 105; // نصف قطر الدايره اللي حوالين الصوره
+  const count = 3;
+  const radiusBase = 105;
   const created = [];
   for (let i = 0; i < count; i++){
     const angle = Math.random() * Math.PI * 2;
@@ -1324,7 +1324,6 @@ function spawnRevealHearts(){
 
 function startGiftRevealHearts(){
   if (giftRevealHeartsInterval) return;
-  // أول دفعه فوراً
   spawnRevealHearts();
   giftRevealHeartsInterval = setInterval(spawnRevealHearts, 900);
 }
@@ -1334,7 +1333,6 @@ function stopGiftRevealHearts(){
     clearInterval(giftRevealHeartsInterval);
     giftRevealHeartsInterval = null;
   }
-  // ننضف أي قلوب لسه موجوده
   giftRevealHearts.innerHTML = '';
 }
 
@@ -1344,7 +1342,6 @@ giftWrapper.addEventListener('click', () => {
     giftBox.classList.add('open');
     setTimeout(spawnGiftHearts, 200);
 
-    // نظهر الصورة الدائريه تحت الهديه بعد ثانيه
     setTimeout(() => {
       giftReveal.classList.add('show');
       startGiftRevealHearts();
